@@ -1,0 +1,83 @@
+{
+  "settings": {
+    "logging": true
+  },
+
+  "browsers": {
+    "firefox": {
+      "paths": [
+        "%ProgramFiles%\\Mozilla Firefox\\firefox.exe",
+        "%ProgramFiles(x86)%\\Mozilla Firefox\\firefox.exe",
+        "%LocalAppData%\\Mozilla Firefox\\firefox.exe",
+        "D:\\Apps\\Mozilla_Firefox\\firefox.exe"
+      ],
+      "args": [ "-P", "personal" ]
+    },
+
+    "opera": {
+      "paths": [
+        "%LocalAppData%\\Programs\\Opera\\opera.exe",
+        "%ProgramFiles%\\Opera\\opera.exe",
+        "%ProgramFiles(x86)%\\Opera\\opera.exe",
+        "D:\\Apps\\OperaBrowser\\opera.exe"
+      ]
+    },
+
+    "chrome": {
+      "paths": [
+        "%ProgramFiles%\\Google\\Chrome\\Application\\chrome.exe",
+        "%LocalAppData%\\Google\\Chrome\\Application\\chrome.exe"
+      ],
+      "args": [ "--new-window" ]
+    }
+  },
+
+  "rules": [
+    {
+      "name": "YouTube (hostname)",
+      "browser": "firefox",
+      "match": {
+        "type": "hostname",
+        "patterns": [
+          "youtube.com",
+          "*.youtube.com",
+          "youtu.be"
+        ]
+      }
+    },
+    {
+      "name": "YouTube Shorts (path)",
+      "browser": "firefox",
+      "match": {
+        "type": "path",
+        "patterns": [
+          "/shorts/*"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs (hostname)",
+      "browser": "chrome",
+      "match": {
+        "type": "hostname",
+        "patterns": [
+          "docs.google.com"
+        ]
+      }
+    },
+    {
+      "name": "Internal admin (regex)",
+      "browser": "opera",
+      "match": {
+        "type": "regex",
+        "patterns": [
+          "^https?://.*\\.mycompany\\.com/admin.*"
+        ]
+      }
+    }
+  ],
+
+  "default": {
+    "browser": "opera"
+  }
+}
