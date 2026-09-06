@@ -469,6 +469,11 @@ try {
 
     $Url = [string]$args[0]
 
+	if ($Url -match '^[a-zA-Z0-9://?&=@%#+.,;~_-]+$') {
+	} else {
+		throw "URL contains invalid characters"
+	}
+
     Write-Log "Received URL: $Url"
 
 

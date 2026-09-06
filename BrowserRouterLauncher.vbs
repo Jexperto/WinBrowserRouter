@@ -70,7 +70,7 @@ url = WScript.Arguments(0)
 command = "powershell.exe " & _
           "-NoProfile " & _
           "-WindowStyle Hidden " & _
-          "-ExecutionPolicy Bypass " & _
+          "-ExecutionPolicy RemoteSigned " & _
           "-File " & quote & routerScript & quote & " " & _
           quote & Replace(url, quote, quote & quote) & quote
 
